@@ -1,0 +1,381 @@
+:root
+  font-size 10px
+  background-color #000
+  --b #5dbee0
+  --r #e1225e
+  --o #ff9e13
+  --g #c6e109
+
+*
+  box-sizing border-box
+
+body
+  margin 0
+
+  main
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    height 100vh
+
+    .heart
+      width 20vmin
+      height auto
+      fill var(--r)
+      transform scale(0)
+      transition transform .5s cubic-bezier(0, 0, 0, 1.5)
+
+      &.is-beating
+        transform scale(1)
+
+    .explosion
+      position absolute
+      z-index 1
+      width 50vmin
+      height 50vmin
+      border-radius 50%
+      transform translateY(0vmin)
+
+      .point
+        background var(--r)
+        border-radius 50%
+
+      .point, .star
+        position absolute
+        width 1em
+        aspect-ratio 1
+        translate 23.5vmin 23.5vmin
+        transform scale(0.5)
+
+      &.is-exploding
+        translate 0 3vmin
+        transition translate 1.95s ease-in
+
+        .point, .star
+          transition 1.5s translate cubic-bezier(0, 0, 0, 1)
+
+          &.is-blinking
+            animation 2.5s blink
+            animation-iteration-count 1
+            animation-fill-mode forwards
+
+          &.is-shrinking
+            &:nth-child(n)
+              transform scale(0)
+              transition all 1s ease-in
+
+          &:nth-child(1)
+            translate 16vmin 21vmin
+            transform scale(2.5)
+            fill var(--g)
+          &:nth-child(2)
+            translate 22vmin 24vmin
+            transform scale(2.47)
+            background var(--r)
+          &:nth-child(3)
+            translate 26vmin 16vmin
+            transform scale(2.44)
+            fill var(--g)
+          &:nth-child(4)
+            translate 17.2vmin 29vmin
+            transform scale(2.41)
+            background var(--o)
+          &:nth-child(5)
+            translate 23.6vmin 31vmin
+            transform scale(2.38)
+            fill var(--g)
+          &:nth-child(6)
+            translate 29vmin 23vmin
+            transform scale(2.35)
+            background var(--g)
+          &:nth-child(7)
+            translate 21vmin 12vmin
+            transform scale(2.32)
+            fill var(--g)
+          &:nth-child(8)
+            translate 20.2vmin 17.3vmin
+            transform scale(2.29)
+            background var(--o)
+          &:nth-child(9)
+            translate 12vmin 27vmin
+            transform scale(2.26)
+            fill var(--g)
+          &:nth-child(10)
+            translate 31.3vmin 18.85vmin
+            transform scale(2.2)
+            background var(--b)
+          &:nth-child(11)
+            translate 33.5vmin 25vmin
+            transform scale(2.21)
+            fill var(--r)
+          &:nth-child(12)
+            translate 16.7vmin 35.5vmin
+            transform scale(2.18)
+            background var(--g)
+          &:nth-child(13)
+            translate 16vmin 13vmin
+            transform scale(2.15)
+            fill var(--r)
+          &:nth-child(14)
+            translate 13vmin 17vmin
+            transform scale(2.12)
+            background var(--b)
+          &:nth-child(15)
+            translate 37vmin 20vmin
+            transform scale(2.09)
+            fill var(--g)
+          &:nth-child(16)
+            translate 28vmin 28vmin
+            transform scale(2.06)
+            background var(--b)
+          &:nth-child(17)
+            translate 27vmin 36vmin
+            transform scale(2.03)
+            fill var(--g)
+          &:nth-child(18)
+            translate 35vmin 30vmin
+            transform scale(2.00)
+            background var(--g)
+          &:nth-child(19)
+            translate 30vmin 33vmin
+            transform scale(1.97)
+            fill var(--r)
+          &:nth-child(20)
+            translate 11.5vmin 23vmin
+            transform scale(1.94)
+            background var(--o)
+          &:nth-child(21)
+            translate 35vmin 14.6vmin
+            transform scale(1.92)
+            fill var(--r)
+          &:nth-child(22)
+            translate 25.5vmin 10.5vmin
+            transform scale(1.89)
+            background var(--o)
+          &:nth-child(23)
+            translate 13.5vmin 32vmin
+            transform scale(1.86)
+            fill var(--r)
+          &:nth-child(24)
+            translate 30vmin 13.3vmin
+            transform scale(1.83)
+            background var(--b)
+          &:nth-child(25)
+            translate 25.5vmin 6vmin
+            transform scale(1.80)
+            fill var(--b)
+          &:nth-child(26)
+            translate 22vmin 37vmin
+            transform scale(1.77)
+            background var(--r)
+          &:nth-child(27)
+            translate 9vmin 12.5vmin
+            transform scale(1.74)
+            fill var(--r)
+          &:nth-child(28)
+            translate 5.6vmin 16.5vmin
+            transform scale(1.71)
+            background var(--o)
+          &:nth-child(29)
+            translate 17vmin 7vmin
+            transform scale(1.68)
+            fill var(--g)
+          &:nth-child(30)
+            translate 40.4vmin 30.4vmin
+            transform scale(1.65)
+            background var(--g)
+          &:nth-child(31)
+            translate 41.5vmin 15.2vmin
+            transform scale(1.63)
+            fill var(--o)
+          &:nth-child(32)
+            translate 17vmin 39vmin
+            transform scale(1.60)
+            background var(--b)
+          &:nth-child(33)
+            translate 8vmin 31vmin
+            transform scale(1.57)
+            fill var(--g)
+          &:nth-child(34)
+            translate 21vmin 6vmin
+            transform scale(1.54)
+            background var(--o)
+          &:nth-child(35)
+            translate 13vmin 38vmin
+            transform scale(1.51)
+            fill var(--r)
+          &:nth-child(36)
+            translate 37.7vmin 12.4vmin
+            transform scale(1.48)
+            background var(--g)
+          &:nth-child(37)
+            translate 33.6vmin 9vmin
+            transform scale(1.45)
+            fill var(--r)
+          &:nth-child(38)
+            translate 31.5vmin 6.7vmin
+            transform scale(1.42)
+            background var(--o)
+          &:nth-child(39)
+            translate 6vmin 22vmin
+            transform scale(1.39)
+            fill var(--b)
+          &:nth-child(40)
+            translate 6.3vmin 26.7vmin
+            transform scale(1.36)
+            background var(--o)
+          &:nth-child(41)
+            translate 22vmin 42.3vmin
+            transform scale(1.34)
+            fill var(--o)
+          &:nth-child(42)
+            translate 35vmin 39.3vmin
+            transform scale(1.31)
+            background var(--b)
+          &:nth-child(43)
+            translate 31vmin 40vmin
+            transform scale(1.28)
+            fill var(--o)
+          &:nth-child(44)
+            translate 10vmin 35vmin
+            transform scale(1.25)
+            background var(--o)
+          &:nth-child(45)
+            translate 42vmin 24vmin
+            transform scale(1.22)
+            fill var(--b)
+          &:nth-child(46)
+            translate 42.7vmin 20vmin
+            transform scale(1.19)
+            background var(--g)
+          &:nth-child(47)
+            translate 10vmin 6vmin
+            transform scale(1.16)
+            fill var(--b)
+          &:nth-child(48)
+            translate 39.2vmin 37.4vmin
+            transform scale(1.13)
+            background var(--g)
+          &:nth-child(49)
+            translate 38.2vmin 34vmin
+            transform scale(1.10)
+            fill var(--o)
+          &:nth-child(50)
+            translate 31vmin 44.5vmin
+            transform scale(1.07)
+            background var(--g)
+          &:nth-child(51)
+            translate 39vmin 42vmin
+            transform scale(1.05)
+            fill var(--o)
+          &:nth-child(52)
+            translate 18.2vmin 43.8vmin
+            transform scale(1.02)
+            background var(--b)
+          &:nth-child(53)
+            translate 22vmin 3vmin
+            transform scale(0.99)
+            fill var(--r)
+          &:nth-child(54)
+            translate 14vmin 10vmin
+            transform scale(0.96)
+            background var(--o)
+          &:nth-child(55)
+            translate 4vmin 12.5vmin
+            transform scale(0.93)
+            fill var(--g)
+          &:nth-child(56)
+            translate 28vmin 3vmin
+            transform scale(0.90)
+            background var(--g)
+          &:nth-child(57)
+            translate 40vmin 10vmin
+            transform scale(0.87)
+            fill var(--o)
+          &:nth-child(58)
+            translate 9.3vmin 40vmin
+            transform scale(0.84)
+            background var(--g)
+          &:nth-child(59)
+            translate 6vmin 38.4vmin
+            transform scale(0.81)
+            fill var(--b)
+          &:nth-child(60)
+            translate 14vmin 4.5vmin
+            transform scale(0.78)
+            background var(--r)
+          &:nth-child(61)
+            translate 2.5vmin 25.7vmin
+            transform scale(0.76)
+            fill var(--r)
+          &:nth-child(62)
+            translate 31.5vmin 2.5vmin
+            transform scale(0.73)
+            background var(--b)
+          &:nth-child(63)
+            translate 36vmin 4vmin
+            transform scale(0.70)
+            fill var(--g)
+          &:nth-child(64)
+            translate 40vmin 6.4vmin
+            transform scale(0.67)
+            background var(--r)
+          &:nth-child(65)
+            translate 45vmin 22vmin
+            transform scale(0.64)
+            fill var(--r)
+          &:nth-child(66)
+            translate 3.5vmin 21vmin
+            transform scale(0.61)
+            background var(--g)
+          &:nth-child(67)
+            translate 42.3vmin 34vmin
+            transform scale(0.58)
+            fill var(--o)
+          &:nth-child(68)
+            translate 2.5vmin 17.2vmin
+            transform scale(0.55)
+            background var(--b)
+          &:nth-child(69)
+            translate 25.4vmin 44vmin
+            transform scale(0.52)
+            fill var(--r)
+          &:nth-child(70)
+            translate 6.5vmin 34vmin
+            transform scale(0.5)
+            background var(--r)
+
+@keyframes blink
+  0%, 10%
+    opacity 1
+  11%, 20%
+    opacity 0
+  21%, 30%
+    opacity 1
+  31%, 40%
+    opacity 0
+  41%, 50%
+    opacity 1
+  46%, 50%
+    opacity 0
+  51%, 55%
+    opacity 1
+  56%, 60%
+    opacity 0
+  61%, 65%
+    opacity 1
+  66%, 70%
+    opacity 0
+  71%, 75%
+    opacity 1
+  76%, 80%
+    opacity 0
+  81%, 85%
+    opacity 1
+  86%, 90%
+    opacity 0
+  91%, 95%
+    opacity 1
+  96%, 100%
+    opacity 0
