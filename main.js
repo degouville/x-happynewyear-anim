@@ -8,44 +8,56 @@ const firework = document.querySelector('.explosion')
 const rand = (min = 0, max = 1, multiplier = 1) => 
   (~~(Math.random() * (max - min + 1)) + min) * multiplier
 
-const genRandomBlink = a =>
+const runMicroAnims = a => {
   a.forEach(e => {
-    setTimeout(() => e.classList.add('is-shrinking'), 100)
-    setTimeout(
-      () => {
-        if (rand() < .5) {
-          const duration = rand(100, 800)
-          e.style.animationDuration = `${ duration }ms`
-          e.classList.add('is-blinking')          
-        }
-      },
-      rand(10, 400)
+    const shrinkTimeout = setTimeout(() => e.classList.add('is-shrinking'), 100)
+    const blinkTimeout = setTimeout(() => {
+        e.style.animationDuration = `${ rand(100, 800) }ms`
+        if(rand() < .5) e.classList.add('is-blinking')          
+      }, rand(10, 400)
     )
-  })
 
-const resetBlink = n =>
+    e.setAttribute('data-shrink-timeout', shrinkTimeout)
+    e.setAttribute('data-blink-timeout', blinkTimeout)
+  })
+}
+
+const reset = n => {
   Array.from(n).forEach(e => {
     e.classList.remove('is-blinking')
     e.classList.remove('is-shrinking')
-  })
 
-setInterval(() => {
+    clearTimeout(e.getAttribute('data-shrink-timeout'))
+    clearTimeout(e.getAttribute('data-blink-timeout'))
+  })
+}
+
+const animate = () => {
   heart.classList.remove('is-beating')
   firework.classList.add('is-exploding')
 
   setTimeout(() => {
-    genRandomBlink(stars) 
-    genRandomBlink(points) 
+    runMicroAnims(stars) 
+    runMicroAnims(points) 
 
-    setTimeout(() => {
-      heart.classList.add('is-beating')
-    }, 400)
+    setTimeout(() => heart.classList.add('is-beating'), 400)
   }, 800)
 
   setTimeout(() => {
     firework.classList.remove('is-exploding')
 
-    resetBlink(stars)
-    resetBlink(points)
+    reset(stars)
+    reset(points)
   }, 1900)
-}, 2000)
+}
+
+const animationInterval = setInterval(() => animate(), 2000)
+
+const stopAnimations = () => {
+  clearInterval(animationInterval)
+  reset(stars)
+  reset(points)
+}
+
+window.onload = animate
+window.onbeforeunload = stopAnimations

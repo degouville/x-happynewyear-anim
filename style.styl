@@ -24,10 +24,11 @@ body
       height auto
       fill var(--r)
       transform scale(0)
-      transition transform .5s cubic-bezier(0, 0, 0, 1.5)
+      transition transform .1s
 
       &.is-beating
         transform scale(1)
+        transition transform .5s cubic-bezier(0, 0, 0, 1.5)
 
     .explosion
       position absolute
